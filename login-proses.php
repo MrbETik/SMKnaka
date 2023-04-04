@@ -57,24 +57,21 @@
         $_SESSION['fullname']   = $baca['fullname'];
 
         if ($_SESSION['role'] == '1') { // role admin
-            //header("Location: admin/index.php");
             header("Refresh: 1; url=admin/index.php"); //will redirect after 1 seconds
             
         } else if ($_SESSION['role'] == '2') { // role guru
-            //header("Location: guru/index.php");
             header("Refresh: 1; url=pengguna/index.php"); //will redirect after 1 seconds
 
         } else if ($_SESSION['role'] == '3') { // role murid
-            //header("Location: murid/index.php");
-            //header("Refresh: 1; url=student/index.php"); //will redirect after 1 seconds
               header("Refresh: 1; url=pengguna/index.php"); //will redirect after 1 seconds
 
-        } else if ($_SESSION['role'] == '9') { // role superadmin
-            //header("Location: newUser.php");
-            header("Refresh: 1; url=newUser.php"); //will redirect after 1 seconds
+        } else if ($_SESSION['role'] == '5') { // role Pengurusan
+            header("Refresh: 1; url=pengguna/index.php"); //will redirect after 1 seconds
 
-        } else if ($_SESSION['role'] == '4') { // role superadmin
-            //header("Location: newUser.php");
+        } else if ($_SESSION['role'] == '6') { // role Pengetua
+            header("Refresh: 1; url=pengguna/index.php"); //will redirect after 1 seconds
+
+        } else if ($_SESSION['role'] == '4') { // role AKP
             header("Refresh: 1; url=pengguna/index.php"); //will redirect after 1 seconds     
         
         }
