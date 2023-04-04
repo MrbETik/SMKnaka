@@ -13,21 +13,21 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <?php
-                    if ($_SESSION['role'] == 2) {
-                      $panggil = "SELECT *
-                      FROM maklumat_guru AS a
-                      INNER JOIN pengguna AS b
-                      ON b.id=a.id_pengguna
-                      WHERE b.`status`=1 AND b.id=" . $_SESSION['id'] ;
-                    } else {
-
-                    }
-                    $result = $sambung->query($panggil);
-                    //print_r($_SESSION);exit();
-                    while ($data = $result->fetch_assoc()){
-                      $row = $data;
-                  ?>
-    <?php } ?>
+if ($_SESSION['role'] == 2 || $_SESSION['role'] == 5 || $_SESSION['role'] == 6) {
+  $panggil = "SELECT *
+              FROM maklumat_guru AS a
+              INNER JOIN pengguna AS b
+              ON b.id=a.id_pengguna
+              WHERE b.status=1 AND b.id=" . $_SESSION['id'];
+} else {
+  // handle the case where the user's role is not 2, 5, or 6
+}
+$result = $sambung->query($panggil);
+while ($data = $result->fetch_assoc()) {
+  $row = $data;
+?>
+<!-- Your HTML code here -->
+<?php } ?>
 
 
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
